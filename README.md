@@ -149,7 +149,7 @@ The optimal policy tells us which direction it is best to move in given the squa
 
 which means that if the robot is at the (6,1) square, it should move down, and at the (6,2) square, it should move right. This makes sense as there is a positive reward at (7,2), so moving right when at (6,2), the robot aims to get this reward. At the (6,1) square, the robot needs to move down and right (in either order) to reach (7,2), however it is better to attempt to move down first, because this moves the robot further from the edge, so it is less likely to randomly be moved into the edge.
 
-The horizon was set to 50 to balance precision and runtime, as the MDP is more computationally intensive. By calculating
+The horizon was set to 50 to balance precision and runtime, as this MDP is more computationally intensive. By calculating
 ```
 val1 = valit.value_iteration(states = grid_states, actions = grid_actions, probs = grid_probs, rewards = grid_reward, horizon = 50, discount = 0.8)[1]
 val2 = valit.value_iteration(states = grid_states, actions = grid_actions, probs = grid_probs, rewards = grid_reward, horizon = 51, discount = 0.8)[1]
