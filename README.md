@@ -1,5 +1,4 @@
-# valit
-# Value Iteration
+# Valit Package: Value Iteration
 
 ## Overview
 
@@ -10,13 +9,18 @@ This package implements value iteration for Markov Decision Processes (MDPs).
 #### Installing from PyPi
 
 ```
-pip install value_iteration
+pip install valit
 ```
 ### Installing from github with pip
 
 ```
-!python -m pip install git+https://github.com/Jasmine-Burgess/value_iteration
+!python -m pip install git+https://github.com/Jasmine-Burgess/valit
 ```
+The package can then be imported:
+```
+import valit
+```
+
 
 ## Examples
 
@@ -67,7 +71,7 @@ def rewards_example1 (state, action):
 ```
 The value_iteration function can be used as follows to determine the best policy to maximise rewards over a long time period.
 ```
-value_iteration(states = states_example1, actions = actions_example1, probs = probs_example1, rewards = rewards_example1, discount = 0.8)
+valit.value_iteration(states = states_example1, actions = actions_example1, probs = probs_example1, rewards = rewards_example1, discount = 0.8)
 ```
 This is an infinite horizon problem, as there is no fixed endpoint where Sam will stop partying or relaxing, so the default horizon of 1000 is used. A discount of 0.8 assigns more importance to immediate rewards than future rewards. The code returns a policy of partying when healthy and relaxing when sick. It also returns the value function which is 35.71428571 for the healthy state and 23.8095238 for the sick state; the value function is higher for the healthy state as the rewards are higher there.
 
@@ -133,7 +137,7 @@ As before, the probabibility and reward functions require inputs of a state and 
 
 The optimal policy and value function can thus be calculated:
 ```
-value_iteration(states = grid_states, actions = grid_actions, probs = grid_probs, rewards = grid_reward, horizon = 50, discount = 0.8)
+valit.value_iteration(states = grid_states, actions = grid_actions, probs = grid_probs, rewards = grid_reward, horizon = 50, discount = 0.8)
 ```
 The optimal policy tells us which direction it is best to move in given the square the robot is currently on. For example, the policy dictionary tells us
 
@@ -145,8 +149,8 @@ which means that if the robot is at the (6,1) square, it should move down, and a
 
 The horizon was set to 50 to balance precision and runtime, as the MDP is more computationally intensive. By calculating
 ```
-val1 = value_iteration(states = grid_states, actions = grid_actions, probs = grid_probs, rewards = grid_reward, horizon = 50, discount = 0.8)[1]
-val2 = value_iteration(states = grid_states, actions = grid_actions, probs = grid_probs, rewards = grid_reward, horizon = 51, discount = 0.8)[1]
+val1 = valit.value_iteration(states = grid_states, actions = grid_actions, probs = grid_probs, rewards = grid_reward, horizon = 50, discount = 0.8)[1]
+val2 = valit.value_iteration(states = grid_states, actions = grid_actions, probs = grid_probs, rewards = grid_reward, horizon = 51, discount = 0.8)[1]
 max(np.array(list(val2.values())) - np.array(list(val1.values())))
 ```
 there is less than 1.65e-07 difference between iterations after 50 iterations, so 50 iterations is enough to have high accuracy.
