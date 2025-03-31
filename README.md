@@ -2,7 +2,7 @@
 
 ## Overview
 
-This package implements value iteration for Markov Decision Processes (MDPs).
+This package implements value iteration for Markov Decision Processes (MDPs), returning an optimal policy of the best action to take in each state to maximise total rewards, and the value function giving the value of each state.
 
 ## Installation
 
