@@ -38,6 +38,8 @@ Sam estimates the dynamics P(s' | s, a): the probabilities of being healthy the 
 These transition probabilities can be represented by the following function, which takes a state and an action as an input and returns a numpy array of probabilities.
 
 ```
+import numpy as np
+
 def probs_example1 (state, action):
     if (state == "healthy"):
         if (action == "relax"):
